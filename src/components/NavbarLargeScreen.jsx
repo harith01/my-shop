@@ -1,11 +1,14 @@
 import React from 'react'
 import { FaArrowDown, FaCaretDown, FaSearch, FaShoppingCart, FaUser } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 const NavbarLargeScreen = () => {
   return (
     <nav className='w-screen flex items-center justify-between px-6 py-4 shadow-md'>
         <div>
+            <Link to='/'>
             <p className='text-lg'>My<span className='text-red-700'>SHOP</span></p>
+            </Link>
         </div>
         <div className=''>
             <form className=' relative flex items-center justify-between gap-2' onSubmit={(e) => e.preventDefault()}>
@@ -22,13 +25,16 @@ const NavbarLargeScreen = () => {
         </div>
         <div className='flex items-center justify-between'>
             <div className='flex text-lg items-center'>
+                <Link to='/login'>
                 <button className='flex items-center gap-2 px-4 py-2 hover:bg-gray-50 text-2xl hover:text-red-600'>
                     <FaUser />
                     <div>Account</div>
                     <FaCaretDown />
                 </button>
+                </Link>
             </div>
             <div className=''>
+                <Link to='/cart'>
                 <button className='flex items-center relative gap-6 px-4 py-2  hover:text-red-600 hover:bg-gray-50 text-2xl'>
                     <div className=''>
                         <FaShoppingCart />
@@ -36,6 +42,7 @@ const NavbarLargeScreen = () => {
                     </div>
                     <div>Cart</div>
                 </button>
+                </Link>
             </div>
         </div>
     </nav>
