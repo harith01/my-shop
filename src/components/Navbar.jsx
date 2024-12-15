@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import NavbarMobile from './NavbarMobile';
+import NavbarLargeScreen from './NavbarLargeScreen';
 
 const Navbar = () => {
 const [isMobile, setIsMobile] = useState(false)
@@ -20,7 +21,7 @@ useEffect(() => {
 
 
   return (
-    isMobile && <NavbarMobile />
+    isMobile ? <NavbarMobile /> : <NavbarLargeScreen />
   )
 }
 
