@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { fetchProducts } from '../redux/productsSlice'
+import Products from '../components/Products'
 
 const Home = () => {
     const dispatch = useDispatch()
@@ -15,10 +16,11 @@ const Home = () => {
         }
       }, [status, dispatch]);
 
-    console.log(data)
 
   return (
-    <div>Home</div>
+    <div>
+      <Products products={data} />
+    </div>
   )
 }
 

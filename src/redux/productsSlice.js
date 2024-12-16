@@ -33,3 +33,4 @@ const productsSlice = createSlice({
 })
 
 export default productsSlice.reducer
+export const selectAllProducts = (state) => state.products.data
