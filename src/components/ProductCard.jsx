@@ -1,6 +1,9 @@
 import React from 'react'
+import { addItem } from '../redux/cartSlice'
+import { useDispatch } from 'react-redux'
 
 const ProductCard = ({product}) => {
+    const dispatch = useDispatch()
   return (
     <div className='shadow-md px-5 py-2 rounded-md group'>
         <div>
@@ -21,7 +24,7 @@ const ProductCard = ({product}) => {
          mt-2
          flex items-center justify-center'
         >
-            <button className='uppercase'>Add to Cart</button>
+            <button onClick={() => dispatch(addItem(product))} className='uppercase'>Add to Cart</button>
         </div>
     </div>
   )
