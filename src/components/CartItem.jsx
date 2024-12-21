@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaDeleteLeft, FaTrash } from 'react-icons/fa6'
+import ProductQuantity from './ProductQuantity'
 
 const CartItem = ({ item }) => {
   return (
@@ -23,8 +24,7 @@ const CartItem = ({ item }) => {
           <button>Remove</button>
         </div>
         <div className='flex gap-2 items-center text-red-600 hover:bg-red-300'>
-          <FaTrash />
-          <button>Remove</button>
+          <ProductQuantity item={item} />
         </div>
 
       </div>
