@@ -7,7 +7,8 @@ const Cart = () => {
   const cartItems = useSelector(selectCartItems)
   console.log(cartItems)
   return (
-    <div>
+    <div className='px-10'>
+      <h2 className='text-2xl font-semibold m-2'>Cart</h2>
       {cartItems?.map(item => <CartItem item={item} />)}
     </div>
   )
