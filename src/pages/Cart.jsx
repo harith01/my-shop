@@ -7,7 +7,7 @@ const Cart = () => {
   const cartItems = useSelector(selectCartItems)
   const totalPrice = useSelector(selectTotalPrice)
   return (
-    <div className='px-10 w-full flex gap-4'>
+    <div className='px-10 w-full md:flex gap-4'>
       <div className='basis-3/4 justify-between'>
         <h2 className='text-2xl font-semibold m-2'>Cart</h2>
         {cartItems?.map(item => <CartItem item={item} />)}
