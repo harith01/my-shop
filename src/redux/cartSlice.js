@@ -62,3 +62,4 @@ export default cartSlice.reducer
 export const { addItem, removeItem, increaseQuantity, decreaseQuantity } = cartSlice.actions
 export const selectCartItems = state => state.cart.items
 export const totalQuantity = state => state.cart.totalQuantity
+export const selectTotalPrice = state => state.cart.totalPrice

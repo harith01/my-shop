@@ -4,7 +4,7 @@ import ProductQuantity from './ProductQuantity'
 
 const CartItem = ({ item }) => {
   return (
-    <div className='w-2/3 shadow-md mb-3 px-2 py-2'>
+    <div className='w-full shadow-md mb-3 px-2 py-2'>
       <div className='flex mb-2 items-center justify-between'>
         <div className='flex  items-center basis-2/3 gap-3'>
           <div className='w-20 border rounded-lg border-red-700'>
