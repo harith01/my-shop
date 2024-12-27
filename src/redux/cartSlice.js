@@ -44,6 +44,7 @@ const cartSlice = createSlice({
             const id = action.payload
             const itemToIncrease = state.items.find(item => item.id === id)
             itemToIncrease.quantity++
+            itemToIncrease.totalPrice += itemToIncrease.price
             state.totalQuantity++
             state.totalPrice += itemToIncrease.price
         },
@@ -52,6 +53,7 @@ const cartSlice = createSlice({
             const id = action.payload
             const itemToDecrease = state.items.find(item => item.id === id)
             itemToDecrease.quantity--
+            itemToDecrease.totalPrice -= itemToDecrease.price
             state.totalQuantity--
             state.totalPrice -= itemToDecrease.price
         },
