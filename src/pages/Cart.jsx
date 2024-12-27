@@ -2,8 +2,10 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectCartItems, selectTotalPrice } from '../redux/cartSlice'
 import CartItem from '../components/cartItem'
+import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
+  const navigate = useNavigate()
   const cartItems = useSelector(selectCartItems)
   const totalPrice = useSelector(selectTotalPrice)
   return (
@@ -18,7 +20,7 @@ const Cart = () => {
           <p>Subtotal:</p>
           <p>{totalPrice}</p>
         </div>
-        <button className='bg-red-600 w-full py-3 hover:bg-red-400 '>Checkout</button>
+        <button onClick={() => navigate('/checkout')} className='bg-red-600 w-full py-3 hover:bg-red-400 '>Checkout</button>
       </div>
     </div>
   )
