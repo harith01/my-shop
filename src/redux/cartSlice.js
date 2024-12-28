@@ -57,6 +57,7 @@ const cartSlice = createSlice({
             state.totalQuantity--
             state.totalPrice -= itemToDecrease.price
         },
+    
     }
 })
 
