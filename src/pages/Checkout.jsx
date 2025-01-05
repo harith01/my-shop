@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { FaAngleUp, FaAngleDown } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
 import { selectCartItems, selectTotalPrice } from '../redux/cartSlice'
+import { useNavigate } from 'react-router-dom'
+import { nanoid } from '@reduxjs/toolkit'
 
-const Checkout = () => {
+const Checkout = ({setOrder}) => {
   const [showbilling, setShowBilling] = useState(false)
   const [showshipping, setShowShipping] = useState(false)
   const [showPayment, setShowPayment] = useState(false)
@@ -14,6 +16,19 @@ const Checkout = () => {
     zip: ''
   })
   const cartItems = useSelector(selectCartItems)
+  const totalPrice = useSelector(selectTotalPrice)
+  const navigate = useNavigate()
+
+  const handlePlaceOrder = () => {
+    const newOrder = {
+      products: cartItems,
+      orderNumber: nanoid(5),
+      shippingInformation: shippingInfo,
+      totalPrice: totalPrice
+    }
+    setOrder(newOrder)
+    navigate('/order-confirmation')
+  }
 
   return (
     <div className='flex px-10'>
@@ -71,7 +86,7 @@ const Checkout = () => {
                     name='address'
                     className='w-full px-3 py-2 border'
                     value={shippingInfo.address}
-                    onClick={(e) => setShippingInfo({...shippingInfo, address: e.target.value})}
+                    onChange={(e) => setShippingInfo({...shippingInfo, address: e.target.value})}
                   />
                 </div>
                 <div>
@@ -82,7 +97,7 @@ const Checkout = () => {
                     name='city'
                     className='w-full px-3 py-2 border'
                     value={shippingInfo.city}
-                    onClick={(e) => setShippingInfo({...shippingInfo, city: e.target.value})}
+                    onChange={(e) => setShippingInfo({...shippingInfo, city: e.target.value})}
 
                   />
                 </div>
@@ -94,7 +109,7 @@ const Checkout = () => {
                     name='zip'
                     className='w-full px-3 py-2 border'
                     value={shippingInfo.zip}
-                    onClick={(e) => setShippingInfo({...shippingInfo, zip: e.target.value})}
+                    onChange={(e) => setShippingInfo({...shippingInfo, zip: e.target.value})}
 
                   />
                 </div>
@@ -165,19 +180,24 @@ const Checkout = () => {
               </div>
               <div className='w-32'>
               <h4>{item.title}</h4>
-              <p>${item.price} x {item.quantity}</p>
+              <p>${item.price.toFixed(2)} x {item.quantity}</p>
               </div>
               <div className=' w-15'>
-                $ {item.totalPrice}
+                $ {item.totalPrice.toFixed(2)}
               </div>
             </div>
           ))}
           <div>
             <div>
-              <span>Total Price: ${useSelector(selectTotalPrice)}</span>
+              <span>Total Price: ${totalPrice}</span>
             </div>
             <div>
-              <button className='py-2 px-1 w-full bg-red-600 text-white mt-2 rounded-sm hover:bg-red-400'>Place Order</button>
+              <button 
+               className='py-2 px-1 w-full bg-red-600 text-white mt-2 rounded-sm hover:bg-red-400'
+               onClick={() => handlePlaceOrder()}
+               >
+                Place Order
+              </button>
             </div>
           </div>
         </div>

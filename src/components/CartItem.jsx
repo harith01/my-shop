@@ -18,7 +18,7 @@ const CartItem = ({ item }) => {
           </div>
         </div>
         <div>
-          <p>$ {item.totalPrice}</p>
+          <p>$ {item.totalPrice.toFixed(2)}</p>
         </div>
       </div>
       <div className='flex justify-between'>

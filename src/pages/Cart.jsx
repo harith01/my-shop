@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectCartItems, selectTotalPrice } from '../redux/cartSlice'
-import CartItem from '../components/cartItem'
+import CartItem from '../components/CartItem'
 import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
@@ -18,7 +18,7 @@ const Cart = () => {
         <h2 className='text-2xl font-semibold m-2'>Cart Summary</h2>
         <div className='flex justify-between gap-3'>
           <p>Subtotal:</p>
-          <p>{totalPrice}</p>
+          <p>{totalPrice.toFixed(2)}</p>
         </div>
         <button onClick={() => navigate('/checkout')} className='bg-red-600 w-full py-3 hover:bg-red-400 '>Checkout</button>
       </div>
