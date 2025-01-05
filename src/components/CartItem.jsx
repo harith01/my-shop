@@ -18,7 +18,7 @@ const CartItem = ({ item }) => {
           </div>
         </div>
         <div>
-          <p>$ {item.price}</p>
+          <p>$ {item.totalPrice}</p>
         </div>
       </div>
       <div className='flex justify-between'>
