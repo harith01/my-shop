@@ -22,7 +22,7 @@ const Checkout = ({setOrder}) => {
   const handlePlaceOrder = () => {
     const newOrder = {
       products: cartItems,
-      orderNumber: nanoid(5),
+      orderId: nanoid(5),
       shippingInformation: shippingInfo,
       totalPrice: totalPrice
     }
