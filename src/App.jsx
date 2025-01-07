@@ -6,6 +6,7 @@ import Login from "./pages/Login"
 import Checkout from "./pages/Checkout"
 import OrderConfirmation from "./pages/OrderConfirmation"
 import { useState } from "react"
+import ProductPage from "./pages/ProductPage"
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/checkout" element={<Checkout setOrder={setOrder} />} />
         <Route path="/order-confirmation" element={<OrderConfirmation order={order}/>} />
+        <Route path="/product/:id" element={<ProductPage />} />
       </Routes>
     </BrowserRouter>
   )
