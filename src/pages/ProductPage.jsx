@@ -6,19 +6,30 @@ import { addItem } from '../redux/cartSlice'
 import AddToCartButton from '../components/AddToCartButton'
 import StarRating from '../components/StarRating'
 import Review from '../components/Review'
+import Spinner from '../components/Spinner'
 
 const ProductPage = () => {
   const { id } = useParams()
   const [productDetail, setProductDetail] = useState()
+  const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
 
   useEffect(() => {
     async function getProduct() {
       const response = await axios.get(`https://dummyjson.com/products/${id}`)
-      setProductDetail(response.data)
+      if (response) {
+        setProductDetail(response.data)
+        setLoading(false)
+      }
     }
     getProduct()
   }, [id])
+
+  if (loading) {
+    return <div className='h-screen flex items-center justify-center'>
+      <Spinner />
+    </div>
+  }
 
   console.log(productDetail)
 
