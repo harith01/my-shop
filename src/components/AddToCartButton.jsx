@@ -12,8 +12,9 @@ const AddToCartButton = ({ product }) => {
              bg-red-600 h-10
              mt-2
              flex items-center justify-center'
+             onClick={() => dispatch(addItem(product))}
         >
-            <button onClick={() => dispatch(addItem(product))} className='uppercase'>Add to Cart</button>
+            <button  className='uppercase'>Add to Cart</button>
         </div>
     )
 }
