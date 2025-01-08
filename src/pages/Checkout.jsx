@@ -182,7 +182,7 @@ const Checkout = ({setOrder}) => {
               <h4>{item.title}</h4>
               <p>${item.price.toFixed(2)} x {item.quantity}</p>
               </div>
-              <div className=' w-15'>
+              <div className=' w-20 font-semibold'>
                 $ {item.totalPrice.toFixed(2)}
               </div>
             </div>

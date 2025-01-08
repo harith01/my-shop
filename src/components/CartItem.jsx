@@ -11,14 +11,14 @@ const CartItem = ({ item }) => {
       <div className='flex mb-2 items-center justify-between'>
         <div className='flex  items-center basis-2/3 gap-3'>
           <div className='w-20 border rounded-lg border-red-700'>
-            <img className='s' src={item.thumbnail} alt='' />
+            <img className='' src={item.thumbnail} alt='' />
           </div>
           <div className='basis-3/5'>
             <p>{item.title}</p>
           </div>
         </div>
         <div>
-          <p>$ {item.totalPrice.toFixed(2)}</p>
+          <p>${item.totalPrice.toFixed(2)}</p>
         </div>
       </div>
       <div className='flex justify-between'>
