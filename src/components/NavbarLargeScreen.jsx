@@ -29,7 +29,7 @@ const NavbarLargeScreen = () => {
         </div>
         <div className='flex items-center justify-between'>
             <div className='flex text-lg items-center'>
-                <Link to='/login'>
+                <Link to='/'>
                 <button className='flex items-center gap-2 px-4 py-2 hover:bg-gray-50 text-2xl hover:text-red-600'>
                     <FaUser />
                     <div>Account</div>
