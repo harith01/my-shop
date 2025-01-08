@@ -2,17 +2,23 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
-import { addItem } from '../redux/cartSlice'
+import { addItem, selectCartItems } from '../redux/cartSlice'
 import AddToCartButton from '../components/AddToCartButton'
 import StarRating from '../components/StarRating'
 import Review from '../components/Review'
 import Spinner from '../components/Spinner'
+import { useSelector } from 'react-redux'
+import ProductQuantity from '../components/ProductQuantity'
 
 const ProductPage = () => {
   const { id } = useParams()
   const [productDetail, setProductDetail] = useState()
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
+  const cartItems = useSelector(selectCartItems)
+
+  const itemInCart = useSelector((state) => state.cart.items?.some(item => item?.id === productDetail?.id))
+  console.log(itemInCart)
 
   useEffect(() => {
     async function getProduct() {
@@ -48,13 +54,15 @@ const ProductPage = () => {
             <p className='font-semibold text-2xl'>Price: ${productDetail?.price}</p>
             <StarRating rating={productDetail?.rating} />
           </div>
-          <AddToCartButton product={productDetail} />
+          <div className='w-1/3 mt-5'>
+            {itemInCart ? <ProductQuantity item={cartItems.find(item => item.id === productDetail.id)} /> : <AddToCartButton product={productDetail} />}
+          </div>
           <div>
-          {productDetail?.reviews.map(review => <Review review={review} />)}
-        </div>
+            {productDetail?.reviews.map((review, index) => <Review key={index} review={review} />)}
+          </div>
         </div>
       </div>
-      
+
     </div>
   )
 }
