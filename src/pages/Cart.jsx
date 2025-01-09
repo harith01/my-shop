@@ -8,6 +8,16 @@ const Cart = () => {
   const navigate = useNavigate()
   const cartItems = useSelector(selectCartItems)
   const totalPrice = useSelector(selectTotalPrice)
+
+  if (cartItems.length === 0) {
+    return (
+      <div className='flex flex-col items-center justify-center h-screen gap-4'>
+        <h2 className='text-2xl font-semibold'>Your Cart is empty</h2>
+        <button className='bg-red-600 hover:bg-red-700 px-5 py-3 text-white rounded-xl' onClick={() => navigate('/home')}>Go Shopping</button>
+      </div>
+    )
+  }
+
   return (
     <div className='px-10 w-full md:flex gap-4'>
       <div className='basis-3/4 justify-between'>
