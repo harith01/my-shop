@@ -28,6 +28,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path='/*' element={
           <ProtectedRoute>
             <Routes>
@@ -36,7 +37,6 @@ function App() {
               <Route path="/checkout" element={<Checkout setOrder={setOrder} />} />
               <Route path="/order-confirmation" element={<OrderConfirmation order={order} />} />
               <Route path="/product/:id" element={<ProductPage />} />
-              <Route path="/register" element={<Register />} />
             </Routes>
           </ProtectedRoute>}
         />
