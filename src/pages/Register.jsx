@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../redux/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -34,6 +36,7 @@ const Register = () => {
             confirmPassword: ''
         })
         alert(`User ${newUser.username} has been registered successfully!`);
+        navigate('/')
     };
 
     return (

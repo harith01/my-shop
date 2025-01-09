@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { selectAllUsers } from '../redux/userSlice';
 import { useDispatch } from 'react-redux';
 import { userLoggedIn } from '../redux/authSlice';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [formData, setFormData] = useState({email:'', password:''});
@@ -89,6 +89,10 @@ const Login = () => {
             </button>
           </div>
         </form>
+        <div className='flex justify-center gap-3 text-sm'>
+          <p className=''>Not Registered? </p>
+          <Link to={'register'}><p className='text-indigo-600 hover:underline'>Register here</p></Link>
+        </div>
       </div>
     </div>
   );
