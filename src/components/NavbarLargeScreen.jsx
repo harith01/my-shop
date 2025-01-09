@@ -1,12 +1,17 @@
 import React from 'react'
-import { FaArrowDown, FaCaretDown, FaSearch, FaShoppingCart, FaUser } from 'react-icons/fa'
+import { FaArrowDown, FaCaretDown, FaSearch, FaShoppingCart, FaSignOutAlt, FaUser } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { totalQuantity } from '../redux/cartSlice'
+import { userLoggedOut } from '../redux/authSlice'
+import { useDispatch } from 'react-redux'
+
 
 
 const NavbarLargeScreen = () => {
     const cartItemsQuantity = useSelector(totalQuantity)
+    const username = useSelector(state => state.auth.username)
+    const dispatch = useDispatch()
   return (
     <nav className='w-screen flex items-center justify-between px-10 py-4 shadow-md'>
         <div>
@@ -29,13 +34,21 @@ const NavbarLargeScreen = () => {
         </div>
         <div className='flex items-center justify-between'>
             <div className='flex text-lg items-center'>
-                <Link to='/'>
+                
                 <button className='flex items-center gap-2 px-4 py-2 hover:bg-gray-50 text-2xl hover:text-red-600'>
                     <FaUser />
-                    <div>Account</div>
-                    <FaCaretDown />
+                    <div>{username}</div>
                 </button>
-                </Link>
+               
+            </div>
+            <div className='flex text-lg items-center'>
+               
+                <button onClick={() => dispatch(userLoggedOut())}
+                className='flex items-center gap-2 px-4 py-2 hover:bg-gray-50 text-2xl hover:text-red-600'>
+                    <FaSignOutAlt />
+                    <div>LogOut</div>
+                </button>
+             
             </div>
             <div className=''>
                 <Link to='/cart'>
