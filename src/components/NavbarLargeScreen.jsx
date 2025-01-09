@@ -14,8 +14,8 @@ const NavbarLargeScreen = () => {
     const dispatch = useDispatch()
   return (
     <nav className='w-screen flex items-center justify-between px-10 py-4 shadow-md'>
-        <div>
-            <Link to='/'>
+        <div className='font-bold text-4xl'>
+            <Link to='/home'>
             <p className='text-lg'>My<span className='text-red-700'>SHOP</span></p>
             </Link>
         </div>
@@ -35,9 +35,9 @@ const NavbarLargeScreen = () => {
         <div className='flex items-center justify-between'>
             <div className='flex text-lg items-center'>
                 
-                <button className='flex items-center gap-2 px-4 py-2 hover:bg-gray-50 text-2xl hover:text-red-600'>
+                <button className='flex items-center gap-2 px-4 py-2  text-2xl '>
                     <FaUser />
-                    <div>{username}</div>
+                    <div>{username ? username : 'User'}</div>
                 </button>
                
             </div>
