@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import AddToCartButton from './AddToCartButton'
-
-
+import RemoveFromCartButton from './RemoveFromCartButton'
+import { useSelector } from 'react-redux'
 
 
 const ProductCard = ({ product }) => {
-
+    const itemInCart = useSelector((state) => state.cart.items?.some(item => item?.id === product?.id))
     
     return (
 
@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
                     <p>$ {product.price}</p>
                 </div>
             </Link>
-            <AddToCartButton product={product} />
+            {itemInCart ? <RemoveFromCartButton product={product} /> : <AddToCartButton product={product} />}
         </div>
 
     )
