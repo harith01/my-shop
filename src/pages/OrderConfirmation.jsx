@@ -33,7 +33,7 @@ const OrderConfirmation = ({order}) => {
         </div>
         <div className='mt-4'>
           <button className='mr-4 bg-red-600 px-4 py-2 text-white'>Track Order</button>
-          <Link to={'/'}><button className='mr-4 bg-blue-600 px-4 py-2 text-white'>Continue Shopping</button></Link>
+          <Link to={'/home'}><button className='mr-4 bg-blue-600 px-4 py-2 text-white'>Continue Shopping</button></Link>
         </div>
     </div>
   )
