@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = [
     {
         username: 'harith',
-        email: 'harithy@ymail.com',
-        password: 'harith',
+        email: 'h@h.com',
+        password: 'h',
     },
     {
         username: 'jamila',
