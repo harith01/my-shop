@@ -31,8 +31,8 @@ const Checkout = ({setOrder}) => {
   }
 
   return (
-    <div className='flex px-10'>
-      <div className='basis-4/6'>
+    <div className='flex flex-col md:flex-row px-10'>
+      <div className='md:basis-2/3'>
         <h2 className='text-2xl font-semibold m-2'>Checkout</h2>
         <div className='flex flex-col md:flex-row justify-between space-x-10 mt-8'>
           <div className='md:w-2/3'>
@@ -189,7 +189,7 @@ const Checkout = ({setOrder}) => {
           ))}
           <div>
             <div>
-              <span>Total Price: ${totalPrice}</span>
+              <span>Total Price: ${totalPrice.toFixed(2)}</span>
             </div>
             <div>
               <button 
