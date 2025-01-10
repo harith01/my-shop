@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaBars, FaSearch, FaUser } from 'react-icons/fa'
 import { FaCartShopping } from 'react-icons/fa6'
+import { useDispatch } from 'react-redux'
+import { productsFiltered } from '../redux/productsSlice'
+import { useNavigate } from 'react-router-dom'
+
 
 const NavbarMobile = () => {
+    const [search, setSearch] = useState('')
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const handleChange = (e) => {
+        setSearch(e.target.value)
+        dispatch(productsFiltered(search))
+        navigate('/filtered-products')
+    }
   return (
     <nav className='py-2 px-3 flex flex-col gap-3 shadow-md'>
         <div className='flex justify-between items-center'>
@@ -26,6 +39,8 @@ const NavbarMobile = () => {
                     type='text'
                     placeholder='Search a product'
                     className='w-full px-8 py-2 rounded-3xl border'
+                    value={search}
+                    onChange={handleChange}
                 />
             </label>
         </form>

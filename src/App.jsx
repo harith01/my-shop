@@ -9,6 +9,7 @@ import { useState } from "react"
 import ProductPage from "./pages/ProductPage"
 import Register from "./pages/Register"
 import { useSelector } from "react-redux"
+import FilteredProducts from "./pages/FilteredProducts"
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
               <Route path="/checkout" element={<Checkout setOrder={setOrder} />} />
               <Route path="/order-confirmation" element={<OrderConfirmation order={order} />} />
               <Route path="/product/:id" element={<ProductPage />} />
+              <Route path="/filtered-products" element={<FilteredProducts />} />
             </Routes>
           </ProtectedRoute>}
         />
