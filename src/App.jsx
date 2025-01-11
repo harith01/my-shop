@@ -10,6 +10,7 @@ import ProductPage from "./pages/ProductPage"
 import Register from "./pages/Register"
 import { useSelector } from "react-redux"
 import FilteredProducts from "./pages/FilteredProducts"
+import Footer from "./components/Footer"
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
           </ProtectedRoute>}
         />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }
